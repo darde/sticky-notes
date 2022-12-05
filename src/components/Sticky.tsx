@@ -20,6 +20,7 @@ const StickyForm = styled.textarea`
   border: none;
   outline: none;
   background: none;
+  resize: none;
   padding: 7px;
   font-family: Open-Sans, Helvetica, Sans-Serif;
 `
