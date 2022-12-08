@@ -32,6 +32,7 @@ function App() {
   const [notes, setNotes] = useState<NoteType[]>(notesData)
   const [resizing, setResizing] = useState<boolean>(false)
   const [garbageAnimation, setGarbageAnimation] = useState(false)
+  const [garbageFull, setGarbageFull] = useState(false)
   const mouseSensor = useSensor(MouseSensor, {
     activationConstraint: {
       distance: 1,
@@ -131,6 +132,7 @@ function App() {
     setGarbageAnimation(true)
     setTimeout(() => {
       setGarbageAnimation(false)
+      setGarbageFull(true)
     }, 400)
   }
 
@@ -158,7 +160,7 @@ function App() {
             )
           }
         </Droppable>
-        <Garbage>
+        <Garbage  isFull={garbageFull}>
           {garbageAnimation && <AnimatedNote />}
         </Garbage>
       </DndContext>

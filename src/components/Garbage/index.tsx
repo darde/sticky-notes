@@ -2,23 +2,25 @@ import React, { useState } from 'react'
 import {useDroppable} from '@dnd-kit/core';
 import styled from 'styled-components'
 import RecicleBin from './assets/recicle-bin.png'
+import  RecicleBinFull from './assets/recicle-bin-full-yellow.png'
 
-const GarbageStyle = styled.div`
-  width: 120px;
-  height: 140px;
+const GarbageStyle = styled.div<{ isFull: boolean }>`
+  width: 84px;
+  height: 98px;
   background: #ccc;
   position: fixed;
   bottom: 0;
-  left: calc(50% - 30px);
-  background: url(${RecicleBin}) 0 0 no-repeat;
+  right: 10%;
+  background: url(${ ({ isFull }) => isFull ? RecicleBinFull : RecicleBin }) 0 0 no-repeat;
   background-size: cover;
 `
 
 type GarbageProps = {
   children: React.ReactNode;
+  isFull: boolean;
 }
 
-const Garbage = ({ children }: GarbageProps) => {
+const Garbage = ({ children, isFull }: GarbageProps) => {
   const {isOver, setNodeRef} = useDroppable({
     id: 'garbage',
   });
@@ -28,7 +30,7 @@ const Garbage = ({ children }: GarbageProps) => {
 
   
   return (
-    <GarbageStyle ref={setNodeRef} style={style}>
+    <GarbageStyle ref={setNodeRef} style={style} isFull={isFull}>
       {children}
     </GarbageStyle>
   )
