@@ -16,7 +16,7 @@
 
 ## Preview
 
-<img width="1152" alt="Screen Shot 2022-12-07 at 19 08 56" src="https://user-images.githubusercontent.com/24977035/206307222-224aa3df-a277-41f3-a88d-0103f7428416.png">
+<img width="1344" alt="Screen Shot 2022-12-07 at 22 15 58" src="https://user-images.githubusercontent.com/24977035/206332115-a193d08f-b227-4bf5-89f7-5e6876cf628a.png">
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
