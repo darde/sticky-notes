@@ -6,13 +6,13 @@
 2. Resize notes
 3. Edit notes content
 4. Remove notes
+5. Create notes
 
 ## Next Features
 
-1. Create notes
-2. Choose notes colors
-3. Add redux toolkit to manage notes state
-4. Add API to persist notes in local storage
+1. Choose notes colors
+2. Add redux toolkit to manage notes state
+3. Add API to persist notes in local storage
 
 ## Preview
 
