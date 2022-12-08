@@ -26,7 +26,7 @@ const Card = styled.div<CardProps>`
 
 type DraggableProps = NoteType & {
   handleOnChange: (id: string, value: string) => void;
-  handleResizing: () => void;
+  handleOnResize: () => void;
   handleOnClick: () => void;
   resizing: boolean;
 }
@@ -37,7 +37,7 @@ export function Draggable({
   content,
   handleOnChange,
   resizing,
-  handleResizing,
+  handleOnResize,
   handleOnClick,
 }: DraggableProps) {
   const [size, setSize] = useState({ width: 190, height: 190 })
@@ -65,13 +65,13 @@ export function Draggable({
       <Resizable
         size={{ width: size.width, height: size.height }}
         style={{ boxShadow: '-1px 16px 10px -10px rgba(0,0,0,0.47)' }}
-        onResizeStart={() => handleResizing()}
+        onResizeStart={() => handleOnResize()}
         onResizeStop={(e, direction, ref, d) => {
           setSize({
             width: size.width + d.width,
             height: size.height + d.height,
           })
-          handleResizing()
+          handleOnResize()
         }}
       >
         <Sticky content={content} handleOnChange={(ev) => handleOnChange(id, ev.target.value)} />

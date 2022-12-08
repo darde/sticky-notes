@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MouseSensor, useSensor, DndContext, DragEndEvent, DragOverlay, useSensors } from '@dnd-kit/core';
+import { MouseSensor, useSensor, DndContext, DragEndEvent, DragOverlay, useSensors, DragStartEvent } from '@dnd-kit/core';
 import { restrictToParentElement } from '@dnd-kit/modifiers'
 import { Draggable } from './components/Draggable';
 import { Droppable } from './components/Droppable';
@@ -39,6 +39,12 @@ function App() {
     }
   })
   const sensors = useSensors(mouseSensor)
+
+  function handleDragStart(ev: DragStartEvent) {
+    const { active: { id } } = ev
+
+    handleStackOrder(id.toString())
+  }
   
   function handleDragEnd(ev: DragEndEvent) {
     if (resizing) {
@@ -141,6 +147,7 @@ function App() {
       <GlobalStyle />
       <DndContext
         onDragEnd={handleDragEnd}
+        onDragStart={handleDragStart}
         modifiers={[restrictToParentElement]}
         sensors={sensors}
       >
@@ -154,7 +161,7 @@ function App() {
                 handleOnClick={() => handleStackOrder(note.id)}
                 content={note.content}
                 resizing={resizing}
-                handleResizing={handleResizing}
+                handleOnResize={handleResizing}
                 handleOnChange={handleOnChangeContent}
               />
             )
