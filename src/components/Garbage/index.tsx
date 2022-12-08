@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {useDroppable} from '@dnd-kit/core';
 import styled from 'styled-components'
 import RecicleBin from './assets/recicle-bin.png'

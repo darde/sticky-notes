@@ -1,30 +1,32 @@
 import React, { useState } from 'react';
 import { MouseSensor, useSensor, DndContext, DragEndEvent, DragOverlay, useSensors, DragStartEvent } from '@dnd-kit/core';
 import { restrictToParentElement } from '@dnd-kit/modifiers'
+import { v4 as uuid } from 'uuid'
 import { Draggable } from './components/Draggable';
 import { Droppable } from './components/Droppable';
 import Garbage from './components/Garbage'
 import BoardBackground from './assets/img/cork-bg.jpeg'
 import AnimatedNote from './components/AnimatedNote';
+import Sidebar from './components/Sidebar';
 import { NoteType } from './types';
 import GlobalStyle from './globalStyles';
 
 
 const notesData: NoteType[] = [
   {
-    id: "1",
+    id: uuid(),
     content: "Study English",
-    pos: { x: 0, y: 0, z: 1 },
+    pos: { x: 130, y: 130, z: 1 },
   },
   {
-    id: "2",
+    id: uuid(),
     content: "Find a job",
-    pos: { x: 10, y: 10, z: 2 },
+    pos: { x: 350, y: 265, z: 2 },
   },
   {
-    id: "3",
+    id: uuid(),
     content: "Buy a car",
-    pos: { x: 100, y: 100, z: 3 },
+    pos: { x: 300, y: 400, z: 3 },
   }
 ];
 
@@ -140,6 +142,20 @@ function App() {
       setGarbageAnimation(false)
       setGarbageFull(true)
     }, 400)
+  
+
+  }
+
+  function createNote() {
+    const zIndex = notes.length;
+    setNotes([
+      ...notes,
+      {
+        id: uuid(),
+        content: '',
+        pos: { x: 20, y: 20, z: zIndex + 1}
+      }
+    ])
   }
 
   return (
@@ -152,6 +168,7 @@ function App() {
         sensors={sensors}
       >
         <Droppable bg={BoardBackground}>
+          <Sidebar createNote={createNote} />
           {
             notes.map(note =>
               <Draggable
