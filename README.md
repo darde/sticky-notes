@@ -1,4 +1,23 @@
-# Getting Started with Create React App
+# Sticky Notes
+
+## Features
+
+1. Drag notes
+2. Resize notes
+3. Edit notes content
+4. Remove notes
+
+## Next Features
+
+1. Create notes
+2. Choose notes colors
+3. Add redux toolkit to manage notes state
+4. Add API to persist notes in local storage
+
+## Preview
+
+<img width="1152" alt="Screen Shot 2022-12-07 at 19 08 56" src="https://user-images.githubusercontent.com/24977035/206307222-224aa3df-a277-41f3-a88d-0103f7428416.png">
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
