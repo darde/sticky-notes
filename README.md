@@ -1,5 +1,7 @@
 # Sticky Notes
 
+This is a Sticky Notes application built with React. You can clone the repo and try it, it's open source :)
+
 ## Features
 
 1. Drag notes
